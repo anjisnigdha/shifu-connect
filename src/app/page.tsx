@@ -90,7 +90,7 @@ export default function HomePage() {
   return (
     <div ref={ref} className="relative">
       {/* Hero section with parallax effect */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-shifu-darker to-shifu-dark pb-18">
+      <div className="relative overflow-hidden bg-gradient-to-b from-shifu-darker to-shifu-dark pb-16">
         <motion.div 
           className="absolute inset-0 z-0"
           style={{ y, opacity }}
@@ -106,7 +106,7 @@ export default function HomePage() {
           </div>
         </motion.div>
       
-        <div className="mx-auto max-w-7xl relative z-10 px-4 py-24 sm:px-6 sm:py-30 lg:px-8">
+        <div className="mx-auto max-w-7xl relative z-10 px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <motion.h1 
               className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl font-display"
@@ -119,7 +119,7 @@ export default function HomePage() {
             </motion.h1>
             
             <motion.p 
-              className="mx-auto mt-4 max-w-2xl text-lg text-gray-300"
+              className="mx-auto mt-6 max-w-2xl text-lg text-gray-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -128,7 +128,7 @@ export default function HomePage() {
             </motion.p>
             
             <motion.div 
-              className="mt-8"
+              className="mt-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -161,25 +161,25 @@ export default function HomePage() {
       </div>
 
       {/* Features section */}
-      <div className="pt-22 pb-18 bg-white dark:bg-shifu-darker">
+      <div className="pt-20 pb-24 bg-white dark:bg-shifu-darker">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 pt-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
               How We Help You Succeed
             </h2>
-            <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               From ideation to scaling, Shifu Connect provides the tools, resources, and connections you need.
             </p>
           </div>
           
           <motion.div
-            className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <div className="rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white dark:bg-shifu-dark p-6 shadow-lg transition-all hover:shadow-xl">
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-shifu-orange/10 dark:bg-shifu-orange/20">
+            <div className="rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white dark:bg-shifu-dark p-8 shadow-lg transition-all hover:shadow-xl">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-shifu-orange/10 dark:bg-shifu-orange/20">
                 <span className="text-xl text-shifu-orange">💡</span>
               </div>
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">Smart Discovery</h3>
@@ -188,8 +188,8 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white dark:bg-shifu-dark p-6 shadow-lg transition-all hover:shadow-xl">
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-shifu-orange/10 dark:bg-shifu-orange/20">
+            <div className="rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white dark:bg-shifu-dark p-8 shadow-lg transition-all hover:shadow-xl">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-shifu-orange/10 dark:bg-shifu-orange/20">
                 <span className="text-xl text-shifu-orange">🚀</span>
               </div>
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">Ideas to Outcomes</h3>
@@ -198,8 +198,8 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white dark:bg-shifu-dark p-6 shadow-lg transition-all hover:shadow-xl">
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-shifu-orange/10 dark:bg-shifu-orange/20">
+            <div className="rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white dark:bg-shifu-dark p-8 shadow-lg transition-all hover:shadow-xl">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-shifu-orange/10 dark:bg-shifu-orange/20">
                 <span className="text-xl text-shifu-orange">🤝</span>
               </div>
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">Connect & Resources</h3>
@@ -212,13 +212,13 @@ export default function HomePage() {
       </div>
 
       {/* Workflow section */}
-      <div className="py-18 bg-gray-50 dark:bg-shifu-dark">
+      <div className="py-24 bg-gray-50 dark:bg-shifu-dark">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
               Your Journey with Shifu Connect
             </h2>
-            <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               A clear path from idea to successful business
             </p>
           </div>
@@ -228,13 +228,13 @@ export default function HomePage() {
       </div>
 
       {/* Comparison section */}
-      <div className="py-18 bg-white dark:bg-shifu-darker">
+      <div className="py-24 bg-white dark:bg-shifu-darker">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
               Why Choose Shifu Connect
             </h2>
-            <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               See how our hands-on approach differs from traditional accelerators
             </p>
           </div>
@@ -248,15 +248,15 @@ export default function HomePage() {
       </div>
 
       {/* CTA section */}
-      <div className="bg-shifu-dark py-12">
+      <div className="bg-shifu-dark py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white">
             Ready to build something amazing?
           </h2>
-          <p className="mt-3 text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Join Shifu Connect today and turn your ideas into reality.
           </p>
-          <div className="mt-6">
+          <div className="mt-8">
             <button
               onClick={() => router.push('/onboarding')}
               className="inline-flex items-center justify-center rounded-md border border-transparent bg-shifu-orange px-8 py-3 text-base font-medium text-white hover:bg-shifu-orange/90 focus:outline-none focus:ring-2 focus:ring-shifu-accent focus:ring-offset-2"

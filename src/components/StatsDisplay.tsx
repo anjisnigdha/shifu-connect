@@ -82,9 +82,9 @@ export default function StatsDisplay({
   const icons = ['🚀', '📈', '👥', '🌍'];
 
   return (
-    <div ref={ref} className="px-4 py-6 bg-white/80 dark:bg-shifu-dark/80 backdrop-blur-lg rounded-xl shadow-xl dark:shadow-black/30 border border-white/20 dark:border-shifu-table-border/40 hover:shadow-xl transition-all duration-300">
+    <div ref={ref} className="px-6 py-6 bg-white/80 dark:bg-shifu-dark/80 backdrop-blur-lg rounded-xl shadow-xl dark:shadow-black/30 border border-white/20 dark:border-shifu-table-border/40 hover:shadow-xl transition-all duration-300">
       {(title || description) && (
-        <div className="px-4 pb-6 text-center">
+        <div className="px-6 pb-6 text-center">
           {title && (
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
               {title}
@@ -108,17 +108,17 @@ export default function StatsDisplay({
           <motion.div
             key={idx}
             variants={itemVariants}
-            className="text-center flex-1 min-w-[110px] max-w-[150px]"
+            className="text-center flex-1 min-w-[120px] max-w-[160px]"
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="mb-2 mx-auto flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-shifu-orange/30 to-shifu-accent/20 dark:from-shifu-orange/20 dark:to-shifu-accent/10 shadow-md">
+            <div className="mb-2 mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-shifu-orange/30 to-shifu-accent/20 dark:from-shifu-orange/20 dark:to-shifu-accent/10 shadow-md">
               <span className="text-xl">{stat.icon || icons[idx % icons.length]}</span>
             </div>
-            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-shifu-orange to-shifu-accent drop-shadow-sm">
+            <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-shifu-orange to-shifu-accent drop-shadow-sm">
               {stat.prefix ?? ''}{animatedValues[idx]}{stat.suffix ?? ''}
             </div>
-            <div className="mt-1 text-xs font-medium text-gray-700 dark:text-gray-200">
+            <div className="mt-1 text-sm font-medium text-gray-700 dark:text-gray-200">
               {stat.label}
             </div>
           </motion.div>
