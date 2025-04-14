@@ -37,9 +37,9 @@ export default function WorkflowSteps({
   };
 
   return (
-    <div className="py-8">
+    <div className="py-6">
       {title && (
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
           {title}
         </h3>
       )}
@@ -54,11 +54,11 @@ export default function WorkflowSteps({
             viewport={{ once: true }}
           >
             {/* Progress line */}
-            <div className="absolute top-8 left-0 w-full h-1 bg-gray-200 dark:bg-shifu-table-row"></div>
+            <div className="absolute top-6 left-0 w-full h-1 bg-gray-200 dark:bg-shifu-table-row"></div>
             
             {/* Progress filled */}
             <motion.div
-              className="absolute top-8 left-0 h-1 bg-shifu-orange"
+              className="absolute top-6 left-0 h-1 bg-shifu-orange"
               style={{
                 width: `${(100 * (activeStep + 0.5)) / steps.length}%`,
               }}
@@ -78,7 +78,7 @@ export default function WorkflowSteps({
                   onClick={() => setActiveStep(idx)}
                 >
                   <div
-                    className={`z-10 flex h-16 w-16 items-center justify-center rounded-full ${
+                    className={`z-10 flex h-12 w-12 items-center justify-center rounded-full ${
                       idx <= activeStep
                         ? 'bg-shifu-orange text-white'
                         : 'bg-gray-200 dark:bg-shifu-table-row text-gray-500 dark:text-gray-400'
@@ -87,7 +87,7 @@ export default function WorkflowSteps({
                     {step.icon}
                   </div>
                   <h4
-                    className={`mt-4 text-center font-medium ${
+                    className={`mt-3 text-center font-medium ${
                       idx <= activeStep
                         ? 'text-shifu-orange'
                         : 'text-gray-500 dark:text-gray-400'
@@ -95,7 +95,7 @@ export default function WorkflowSteps({
                   >
                     {step.title}
                   </h4>
-                  <p className="mt-2 max-w-xs text-center text-sm text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 max-w-xs text-center text-sm text-gray-500 dark:text-gray-400">
                     {step.description}
                   </p>
                 </motion.div>
@@ -106,7 +106,7 @@ export default function WorkflowSteps({
       ) : (
         <div className="block md:hidden">
           <motion.div
-            className="space-y-8"
+            className="space-y-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -116,7 +116,7 @@ export default function WorkflowSteps({
               <motion.div
                 key={idx}
                 className={`relative pl-10 ${
-                  idx !== steps.length - 1 ? 'pb-8' : ''
+                  idx !== steps.length - 1 ? 'pb-6' : ''
                 }`}
                 variants={childVariants}
               >
