@@ -9,6 +9,7 @@ type Stat = {
   prefix?: string;
   suffix?: string;
   duration?: number;
+  icon?: string;
 };
 
 type StatsDisplayProps = {
@@ -20,7 +21,7 @@ type StatsDisplayProps = {
 
 export default function StatsDisplay({
   stats,
-  columns = 3,
+  columns = 4,
   title,
   description,
 }: StatsDisplayProps) {
@@ -61,7 +62,7 @@ export default function StatsDisplay({
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
       },
     },
   };
@@ -78,8 +79,10 @@ export default function StatsDisplay({
     },
   };
 
+  const icons = ['🚀', '📈', '👥', '🌍'];
+
   return (
-    <div ref={ref} className="py-12 bg-white dark:bg-shifu-dark rounded-xl shadow-lg border border-gray-200 dark:border-shifu-table-border">
+    <div ref={ref} className="px-6 py-8 bg-white/80 dark:bg-shifu-dark/80 backdrop-blur-lg rounded-xl shadow-xl dark:shadow-black/30 border border-white/20 dark:border-shifu-table-border/40 hover:shadow-xl transition-all duration-300">
       {(title || description) && (
         <div className="px-6 pb-8 text-center">
           {title && (
@@ -99,18 +102,23 @@ export default function StatsDisplay({
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className={`grid grid-cols-1 md:grid-cols-${columns} gap-6 px-6`}
+        className="flex flex-wrap justify-center gap-10 md:gap-16 items-center"
       >
         {stats.map((stat, idx) => (
           <motion.div
             key={idx}
             variants={itemVariants}
-            className="text-center"
+            className="text-center flex-1 min-w-[120px] max-w-[160px]"
+            whileHover={{ scale: 1.05, y: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="text-4xl font-bold text-shifu-orange dark:text-shifu-accent">
+            <div className="mb-3 mx-auto flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-shifu-orange/30 to-shifu-accent/20 dark:from-shifu-orange/20 dark:to-shifu-accent/10 shadow-md">
+              <span className="text-2xl">{stat.icon || icons[idx % icons.length]}</span>
+            </div>
+            <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-shifu-orange to-shifu-accent drop-shadow-sm">
               {stat.prefix ?? ''}{animatedValues[idx]}{stat.suffix ?? ''}
             </div>
-            <div className="mt-2 text-gray-600 dark:text-gray-300">
+            <div className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-200">
               {stat.label}
             </div>
           </motion.div>

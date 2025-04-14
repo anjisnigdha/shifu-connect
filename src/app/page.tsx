@@ -90,7 +90,7 @@ export default function HomePage() {
   return (
     <div ref={ref} className="relative">
       {/* Hero section with parallax effect */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-shifu-darker to-shifu-dark">
+      <div className="relative overflow-hidden bg-gradient-to-b from-shifu-darker to-shifu-dark pb-24">
         <motion.div 
           className="absolute inset-0 z-0"
           style={{ y, opacity }}
@@ -144,15 +144,26 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Stats section */}
-      <div className="relative -mt-16 z-20 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <StatsDisplay stats={stats} columns={4} />
+      {/* Stats section - positioned between hero and features */}
+      <div className="relative z-30 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8" style={{ marginTop: "-80px" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+        >
+          <StatsDisplay 
+            stats={stats.map((stat, index) => ({
+              ...stat,
+              icon: index === 0 ? '🚀' : index === 1 ? '📈' : index === 2 ? '👥' : '🌍'
+            }))} 
+          />
+        </motion.div>
       </div>
 
       {/* Features section */}
-      <div className="py-24 bg-white dark:bg-shifu-darker">
+      <div className="pt-28 pb-24 bg-white dark:bg-shifu-darker">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 pt-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
               How We Help You Succeed
             </h2>
