@@ -96,13 +96,13 @@ export default function HomePage() {
           style={{ y, opacity }}
         >
           <div className="absolute right-20 top-20">
-            <ShifuIllustration character="redPanda" size="lg" animation="float" />
+            <ShifuIllustration character="primary" size="lg" animation="float" />
           </div>
           <div className="absolute left-20 bottom-40">
-            <ShifuIllustration character="panda" size="md" animation="bounce" />
+            <ShifuIllustration character="tertiary" size="md" animation="subtle" />
           </div>
           <div className="absolute right-40 bottom-20">
-            <ShifuIllustration character="crane" size="md" animation="pulse" />
+            <ShifuIllustration character="secondary" size="md" animation="reveal" />
           </div>
         </motion.div>
       

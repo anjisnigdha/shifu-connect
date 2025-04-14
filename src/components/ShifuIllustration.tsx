@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
-type CharacterType = 'redPanda' | 'crane' | 'panda';
+type IllustrationType = 'primary' | 'secondary' | 'tertiary';
 
 type ShifuIllustrationProps = {
-  character: CharacterType;
+  character: IllustrationType;
   size?: 'sm' | 'md' | 'lg';
-  animation?: 'bounce' | 'pulse' | 'float' | 'none';
+  animation?: 'subtle' | 'reveal' | 'float' | 'none';
   className?: string;
 };
 
@@ -25,33 +25,34 @@ export default function ShifuIllustration({
   };
 
   const animationVariants = {
-    bounce: {
-      y: [0, -10, 0],
+    subtle: {
+      scale: [1, 1.02, 1],
       transition: {
-        duration: 2,
+        duration: 4,
         repeat: Infinity,
         ease: "easeInOut"
       }
     },
-    pulse: {
-      scale: [1, 1.05, 1],
+    reveal: {
+      opacity: [0.7, 1, 0.7],
+      scale: [0.98, 1, 0.98],
       transition: {
-        duration: 3,
+        duration: 5,
         repeat: Infinity,
         ease: "easeInOut"
       }
     },
     float: {
-      y: [0, -10, 0],
-      rotate: [0, 2, 0, -2, 0],
+      y: [0, -5, 0],
+      x: [0, 2, 0, -2, 0],
       transition: {
         y: {
-          duration: 3,
+          duration: 4,
           repeat: Infinity,
           ease: "easeInOut"
         },
-        rotate: {
-          duration: 5,
+        x: {
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut"
         }
@@ -60,29 +61,39 @@ export default function ShifuIllustration({
     none: {}
   };
 
-  // Character components
-  const characters: Record<CharacterType, ReactNode> = {
-    redPanda: (
+  // Abstract professional illustrations
+  const illustrations: Record<IllustrationType, ReactNode> = {
+    primary: (
       <div className="relative">
-        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-shifu-brown/30 dark:bg-shifu-table-header/40" style={{ filter: 'blur(20px)' }}></div>
-        <div className="relative bg-gradient-to-b from-orange-500 to-red-600 rounded-full overflow-hidden flex items-center justify-center">
-          <div className="text-4xl transform -rotate-12">🦊</div>
+        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-shifu-orange/20 dark:bg-shifu-orange/10" style={{ filter: 'blur(15px)' }}></div>
+        <div className="relative w-full h-full bg-gradient-to-br from-shifu-orange to-amber-500 rounded-full overflow-hidden flex items-center justify-center">
+          <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-amber-400/80 to-transparent"></div>
+          <div className="absolute w-1/2 h-1/2 left-[30%] top-[25%] bg-white/30 rounded-full"></div>
         </div>
       </div>
     ),
-    crane: (
+    secondary: (
       <div className="relative">
-        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-blue-500/20 dark:bg-blue-900/30" style={{ filter: 'blur(20px)' }}></div>
-        <div className="relative bg-gradient-to-b from-blue-400 to-blue-600 rounded-full overflow-hidden flex items-center justify-center">
-          <div className="text-4xl transform rotate-12">🐦</div>
+        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-blue-500/15 dark:bg-blue-700/20" style={{ filter: 'blur(15px)' }}></div>
+        <div className="relative w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full overflow-hidden flex items-center justify-center">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.3),transparent_60%)]"></div>
+          <div className="absolute bottom-[15%] right-[15%] w-1/3 h-1/3 bg-white/20 rounded-full"></div>
         </div>
       </div>
     ),
-    panda: (
+    tertiary: (
       <div className="relative">
-        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gray-500/20 dark:bg-gray-700/30" style={{ filter: 'blur(20px)' }}></div>
-        <div className="relative bg-gradient-to-b from-gray-100 to-gray-300 dark:from-gray-600 dark:to-gray-900 rounded-full overflow-hidden flex items-center justify-center">
-          <div className="text-4xl">🐼</div>
+        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gray-400/15 dark:bg-gray-600/20" style={{ filter: 'blur(15px)' }}></div>
+        <div className="relative w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 dark:from-gray-500 dark:to-gray-700 rounded-full overflow-hidden flex items-center justify-center">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.25),transparent_70%)]"></div>
+          <motion.div 
+            className="absolute w-3/5 h-3/5 rounded-full"
+            style={{ 
+              backgroundImage: "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%)",
+              top: "20%",
+              left: "20%"
+            }}
+          ></motion.div>
         </div>
       </div>
     )
@@ -94,7 +105,7 @@ export default function ShifuIllustration({
       variants={animationVariants}
       animate={animation}
     >
-      {characters[character]}
+      {illustrations[character]}
     </motion.div>
   );
 } 
