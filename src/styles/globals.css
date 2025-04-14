@@ -14,22 +14,81 @@
 
 @layer components {
     .btn {
-        @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+        @apply inline-flex items-center justify-center rounded-md border border-transparent font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
     }
 
     .btn-primary {
-        @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+        @apply bg-shifu-orange text-white hover:bg-shifu-orange/90 focus:ring-shifu-accent;
     }
 
     .btn-secondary {
-        @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+        @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 dark:bg-shifu-brown dark:text-white dark:border-shifu-table-border dark:hover:bg-shifu-table-row;
+    }
+
+    .btn-sm {
+        @apply px-3 py-2 text-sm;
+    }
+
+    .btn-md {
+        @apply px-4 py-2 text-sm;
+    }
+
+    .btn-lg {
+        @apply px-6 py-3 text-base;
     }
 
     .input {
-        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm;
+        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-shifu-accent focus:ring-shifu-accent dark:border-shifu-table-border dark:bg-shifu-darker dark:text-white dark:placeholder-gray-400;
     }
 
     .card {
-        @apply rounded-lg bg-white p-6 shadow dark:bg-gray-800;
+        @apply rounded-xl border border-gray-200 dark:border-shifu-table-border bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300 dark:bg-shifu-dark dark:hover:shadow-shifu-table-border/20;
     }
+
+    /* Dashboard section styles */
+    .section-title {
+        @apply text-2xl font-bold text-gray-900 dark:text-white font-display;
+    }
+
+    .section-description {
+        @apply mt-1 text-sm text-gray-500 dark:text-gray-400;
+    }
+}
+
+/* Custom scrollbar for dark mode */
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-shifu-darker;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-shifu-table-border rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-shifu-accent/50;
+    }
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    @apply bg-shifu-darker;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    @apply bg-shifu-table-border rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-shifu-accent/50;
 }

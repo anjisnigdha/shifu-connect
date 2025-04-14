@@ -4,6 +4,8 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
+import ThemeToggle from './ThemeToggle';
+import ShifuLogo from './ShifuLogo';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard' },
@@ -17,27 +19,28 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as="nav" className="bg-white shadow dark:bg-gray-800">
+    <Disclosure as="nav" className="bg-white shadow dark:bg-shifu-dark border-b dark:border-shifu-table-border transition-colors duration-200">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  <span className="text-xl font-bold text-primary-600 dark:text-primary-400 font-display">
-                    Shifu
-                  </span>
+                  <Link href="/">
+                    <ShifuLogo />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   {navigation.map((item) => {
-                    const isActive = pathname === item.href;
+                    const isActive = pathname === item.href || 
+                                    (item.href !== '/dashboard' && pathname?.startsWith(item.href));
                     return (
                       <Link
                         key={item.name}
                         href={item.href}
                         className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
                           isActive
-                            ? 'border-b-2 border-primary-500 text-gray-900 dark:text-white'
+                            ? 'border-b-2 border-shifu-orange text-gray-900 dark:text-white'
                             : 'border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white'
                         }`}
                       >
@@ -47,13 +50,14 @@ export default function Header() {
                   })}
                 </div>
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:items-center">
+              <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
+                <ThemeToggle />
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-gray-700">
+                    <Menu.Button className="flex rounded-full bg-white dark:bg-shifu-brown text-sm focus:outline-none focus:ring-2 focus:ring-shifu-accent focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
-                      <div className="h-8 w-8 rounded-full bg-primary-200 flex items-center justify-center">
-                        <span className="text-xs font-medium text-primary-800">JS</span>
+                      <div className="h-8 w-8 rounded-full bg-shifu-orange flex items-center justify-center">
+                        <span className="text-xs font-medium text-white">JS</span>
                       </div>
                     </Menu.Button>
                   </div>
@@ -66,13 +70,13 @@ export default function Header() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-700">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-shifu-brown">
                       <Menu.Item>
                         {({ active }) => (
                           <Link
                             href="/profile"
                             className={`${
-                              active ? 'bg-gray-100 dark:bg-gray-600' : ''
+                              active ? 'bg-gray-100 dark:bg-shifu-table-row' : ''
                             } block px-4 py-2 text-sm text-gray-700 dark:text-gray-200`}
                           >
                             Your Profile
@@ -84,7 +88,7 @@ export default function Header() {
                           <Link
                             href="/settings"
                             className={`${
-                              active ? 'bg-gray-100 dark:bg-gray-600' : ''
+                              active ? 'bg-gray-100 dark:bg-shifu-table-row' : ''
                             } block px-4 py-2 text-sm text-gray-700 dark:text-gray-200`}
                           >
                             Settings
@@ -96,7 +100,7 @@ export default function Header() {
                           <a
                             href="#"
                             className={`${
-                              active ? 'bg-gray-100 dark:bg-gray-600' : ''
+                              active ? 'bg-gray-100 dark:bg-shifu-table-row' : ''
                             } block px-4 py-2 text-sm text-gray-700 dark:text-gray-200`}
                           >
                             Sign out
@@ -108,7 +112,8 @@ export default function Header() {
                 </Menu>
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 dark:hover:bg-gray-700 dark:hover:text-white">
+                <ThemeToggle />
+                <Disclosure.Button className="ml-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-shifu-orange dark:hover:bg-shifu-brown dark:hover:text-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
@@ -127,7 +132,8 @@ export default function Header() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
               {navigation.map((item) => {
-                const isActive = pathname === item.href;
+                const isActive = pathname === item.href || 
+                                (item.href !== '/dashboard' && pathname?.startsWith(item.href));
                 return (
                   <Disclosure.Button
                     key={item.name}
@@ -135,8 +141,8 @@ export default function Header() {
                     href={item.href}
                     className={`block border-l-4 py-2 pl-3 pr-4 text-base font-medium ${
                       isActive
-                        ? 'border-primary-500 bg-primary-50 text-primary-700 dark:bg-gray-700 dark:text-primary-300'
-                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white'
+                        ? 'border-shifu-orange bg-shifu-table-header/20 text-shifu-orange dark:text-shifu-accent'
+                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-shifu-table-header/30 dark:hover:text-white'
                     }`}
                   >
                     {item.name}
@@ -144,11 +150,11 @@ export default function Header() {
                 );
               })}
             </div>
-            <div className="border-t border-gray-200 pb-3 pt-4 dark:border-gray-700">
+            <div className="border-t border-gray-200 pb-3 pt-4 dark:border-shifu-table-border">
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
-                  <div className="h-10 w-10 rounded-full bg-primary-200 flex items-center justify-center">
-                    <span className="text-sm font-medium text-primary-800">JS</span>
+                  <div className="h-10 w-10 rounded-full bg-shifu-orange flex items-center justify-center">
+                    <span className="text-sm font-medium text-white">JS</span>
                   </div>
                 </div>
                 <div className="ml-3">
@@ -160,21 +166,21 @@ export default function Header() {
                 <Disclosure.Button
                   as={Link}
                   href="/profile"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-shifu-table-header/30 dark:hover:text-white"
                 >
                   Your Profile
                 </Disclosure.Button>
                 <Disclosure.Button
                   as={Link}
                   href="/settings"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-shifu-table-header/30 dark:hover:text-white"
                 >
                   Settings
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-shifu-table-header/30 dark:hover:text-white"
                 >
                   Sign out
                 </Disclosure.Button>
