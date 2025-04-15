@@ -13,19 +13,27 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
-    // Check for saved theme preference in localStorage or use system preference
+    // Always start with dark theme on initial page load
+    setTheme('dark');
+    document.documentElement.classList.add('dark');
+    
+    // After the initial page load, we can check for saved preferences
+    // This will only apply if the user manually toggles the theme
     const savedTheme = localStorage.getItem('theme') as Theme;
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-    
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (!isInitialLoad && savedTheme) {
+      setTheme(savedTheme);
+      
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      }
     }
-  }, []);
+    
+    setIsInitialLoad(false);
+  }, [isInitialLoad]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
