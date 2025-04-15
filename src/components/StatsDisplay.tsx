@@ -82,16 +82,16 @@ export default function StatsDisplay({
   const icons = ['🚀', '📈', '👥', '🌍'];
 
   return (
-    <div ref={ref} className="px-6 py-6 bg-white/80 dark:bg-shifu-dark/80 backdrop-blur-lg rounded-xl shadow-xl dark:shadow-black/30 border border-white/20 dark:border-shifu-table-border/40 hover:shadow-xl transition-all duration-300">
+    <div ref={ref} className="px-6 py-6 bg-shifu-dark/90 backdrop-blur-lg rounded-xl shadow-xl border border-shifu-table-border/30 hover:shadow-2xl transition-all duration-300">
       {(title || description) && (
         <div className="px-6 pb-6 text-center">
           {title && (
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-semibold text-white">
               {title}
             </h2>
           )}
           {description && (
-            <p className="mt-2 text-gray-600 dark:text-gray-300">
+            <p className="mt-2 text-gray-300">
               {description}
             </p>
           )}
@@ -112,13 +112,13 @@ export default function StatsDisplay({
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="mb-2 mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-shifu-orange/30 to-shifu-accent/20 dark:from-shifu-orange/20 dark:to-shifu-accent/10 shadow-md">
+            <div className="mb-2 mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-shifu-orange/30 to-shifu-accent/20 shadow-md">
               <span className="text-xl">{stat.icon || icons[idx % icons.length]}</span>
             </div>
             <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-shifu-orange to-shifu-accent drop-shadow-sm">
               {stat.prefix ?? ''}{animatedValues[idx]}{stat.suffix ?? ''}
             </div>
-            <div className="mt-1 text-sm font-medium text-gray-700 dark:text-gray-200">
+            <div className="mt-1 text-sm font-medium text-gray-200">
               {stat.label}
             </div>
           </motion.div>
