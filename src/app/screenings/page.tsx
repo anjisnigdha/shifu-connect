@@ -265,7 +265,7 @@ export default function ScreeningsPage() {
             
             <div className="mt-6 text-center">
               <p className="text-gray-600">
-                After registration, you'll receive a confirmation email with details about your selected screening.
+                After registration, you will receive a confirmation email with details about your selected screening.
               </p>
             </div>
           </div>
