@@ -53,7 +53,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Massive Opportunity</h3>
               <p className="text-gray-600">
-                India's AI market is projected to reach $7.8 billion by 2025, creating a huge opportunity for innovation.
+                India&apos;s AI market is projected to reach $7.8 billion by 2025, creating a huge opportunity for innovation.
               </p>
             </div>
           </div>
