@@ -23,7 +23,7 @@ export type Feature = {
   type: string;
   details: {
     description: string;
-    [key: string]: any;
+    [key: string]: string | string[] | boolean | Record<string, string>;
   };
 };
 

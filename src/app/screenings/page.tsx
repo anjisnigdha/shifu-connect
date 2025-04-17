@@ -1,5 +1,4 @@
 import { MOCK_SCREENINGS } from '@/lib/data';
-import { useState } from 'react';
 
 export default function ScreeningsPage() {
   return (
@@ -446,7 +445,7 @@ export default function ScreeningsPage() {
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                  <textarea rows={3} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Tell us about your venue and audience"></textarea>
+                  <textarea rows={3} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Tell us about your venue and audience&apos;s interests"></textarea>
                 </div>
                 
                 <button type="submit" className="w-full px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-md font-medium hover:from-indigo-700 hover:to-purple-700 transition duration-300">

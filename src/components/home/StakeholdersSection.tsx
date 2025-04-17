@@ -1,3 +1,4 @@
+import React from 'react';
 import { PROJECT_DATA } from '@/lib/data';
 import Link from 'next/link';
 import { FaGraduationCap, FaHandshake, FaBuilding, FaGlobe, FaNetworkWired, FaAward } from 'react-icons/fa';
@@ -29,12 +30,12 @@ const StakeholdersSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Join the Movement</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Be part of India's largest AI documentary initiative connecting entrepreneurs, students, and supporters across the globe
+            Be part of India&apos;s largest AI documentary initiative connecting entrepreneurs, students, and supporters across the globe
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {stakeholders.map((stakeholder, index) => (
+          {stakeholders.map((stakeholder) => (
             <div
               key={stakeholder.persona}
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"

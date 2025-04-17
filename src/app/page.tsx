@@ -13,7 +13,7 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">India's Untapped AI Potential</h2>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">India&apos;s Untapped AI Potential</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Despite having incredible tech talent, entrepreneurs from remote parts of India face unique challenges in building successful AI ventures.
             </p>

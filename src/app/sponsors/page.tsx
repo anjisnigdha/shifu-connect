@@ -8,7 +8,7 @@ export default function Sponsors() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Sponsor BSY</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
-            Join leading organizations in supporting India's AI entrepreneurship movement
+            Join leading organizations in supporting India&apos;s AI entrepreneurship movement
           </p>
           <Link 
             href="#contact-us"
@@ -33,7 +33,7 @@ export default function Sponsors() {
               </div>
               <h3 className="text-xl font-semibold text-center mb-3">Massive Reach</h3>
               <p className="text-gray-600 text-center">
-                Connect with 100K+ students offline and 1M+ online across India's tech ecosystem.
+                Connect with 100K+ students offline and 1M+ online across India&apos;s tech ecosystem.
               </p>
             </div>
             
@@ -45,7 +45,7 @@ export default function Sponsors() {
               </div>
               <h3 className="text-xl font-semibold text-center mb-3">Brand Association</h3>
               <p className="text-gray-600 text-center">
-                Align your brand with India's AI revolution and support the next generation of entrepreneurs.
+                Align your brand with India&apos;s AI revolution and support the next generation of entrepreneurs.
               </p>
             </div>
             
