@@ -8,7 +8,7 @@ export default function Partners() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Host a Screening</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
-            Join our massive distribution network and bring the inspiring BSY documentary to your college, organization, or community.
+            Join our massive outreach program and bring the inspiring BSY documentary to your college, organization, or community.
           </p>
           <Link 
             href="#submit-interest"

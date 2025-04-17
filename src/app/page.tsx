@@ -66,7 +66,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">How BSY Makes a Difference</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Through a powerful documentary and massive distribution plan, we aim to inspire and connect the next generation of AI innovators.
+              Through a powerful documentary and massive outreach program, we aim to inspire and connect the next generation of AI innovators.
             </p>
           </div>
           
@@ -110,7 +110,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Massive Distribution Plan</h3>
+                <h3 className="text-xl font-semibold text-gray-900">Massive Outreach Plan</h3>
               </div>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">

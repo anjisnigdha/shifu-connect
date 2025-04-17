@@ -69,7 +69,7 @@ const DistributionMap = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Dynamic Distribution Map</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our massive distribution plan across India and globally
+            Explore our massive outreach plan across India and globally
           </p>
         </div>
 

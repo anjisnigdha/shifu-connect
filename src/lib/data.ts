@@ -7,7 +7,7 @@ export const PROJECT_DATA: ProjectData = {
     "Responsive website",
     "Tie together stakeholders: students, supporters, screening hosts, partners, sponsors",
     "Launch by early May",
-    "Convey two key selling points: High-quality documentary + Massive distribution plan",
+    "Convey two key selling points: High-quality documentary + Massive outreach plan",
     "Use creatives, illustrations, depictions, workflows, charts"
   ],
   stakeholders: [
@@ -51,7 +51,7 @@ export const PROJECT_DATA: ProjectData = {
     },
     {
       persona: "Outreach Partners",
-      description: "Massive distribution networks",
+      description: "Massive outreach networks",
       examples: [
         "Indiaspora",
         "TeachForIndia",
@@ -79,7 +79,7 @@ export const PROJECT_DATA: ProjectData = {
   personaFlows: {
     everyone: [
       "Glimpse of the Documentary - Trailer, Behind-the-scenes, Stories",
-      "Overview of the Massive Distribution Plan - India + Global"
+      "Overview of the Massive Outreach Plan - India + Global"
     ],
     students: [
       "Register for FREE screening",
